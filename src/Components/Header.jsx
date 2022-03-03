@@ -2,8 +2,12 @@ import { Badge, Dropdown, FormControl, Nav, Navbar, NavbarBrand } from "react-bo
 import { FaShoppingCart } from "react-icons/fa";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import { Link } from "react-router-dom";
+import { CartState } from "../Context/Context";
 
 const Header = () => {
+
+    const {state: {cart}} = CartState();
+
     return ( 
         <Navbar bg='dark' variant="dark" sticky="top" className="d-flex justify-content-between px-4">
                 <NavbarBrand>
@@ -17,7 +21,9 @@ const Header = () => {
                 <Nav>
                     <Dropdown>
                         <Dropdown.Toggle variant="warning">
-                            <Badge bg="secondary">{100}</Badge>
+                            <Badge bg="secondary">
+                                {cart.length}
+                            </Badge>
                             <FaShoppingCart color="white" fontSize="25px" className="mx-2" />
                         </Dropdown.Toggle>
 
