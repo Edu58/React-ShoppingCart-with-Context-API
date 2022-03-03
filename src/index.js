@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import MyContext from './Context/Context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MyContext>
+      <App />
+    </MyContext>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 if(module.hot) {

@@ -1,13 +1,13 @@
-import { Badge, Container, Dropdown, FormControl, Nav, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
+import { Badge, Dropdown, FormControl, Nav, Navbar, NavbarBrand } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return ( 
-        <Navbar bg='dark' variant="dark">
-            <Container>
+        <Navbar bg='dark' variant="dark" sticky="top" className="d-flex justify-content-between px-4">
                 <NavbarBrand>
-                    <a href="/" className="text-light">Big Shop</a>
+                    <Link to="/" className="text-light">Big Shop</Link>
                 </NavbarBrand>
 
                 <Navbar.Text className="search">
@@ -15,12 +15,10 @@ const Header = () => {
                 </Navbar.Text>
 
                 <Nav>
-                    <Dropdown alignright>
+                    <Dropdown>
                         <Dropdown.Toggle variant="warning">
-                            <Badge bg="secondary">
-                                {/* {100} */}
-                            </Badge>
-                            <FaShoppingCart color="white" fontSize="25px" />
+                            <Badge bg="secondary">{100}</Badge>
+                            <FaShoppingCart color="white" fontSize="25px" className="mx-2" />
                         </Dropdown.Toggle>
 
                         <DropdownMenu className="text-center">
@@ -28,9 +26,8 @@ const Header = () => {
                         </DropdownMenu>
                     </Dropdown>
                 </Nav>
-            </Container>
         </Navbar>
      );
-}
- 
+};
+
 export default Header;
