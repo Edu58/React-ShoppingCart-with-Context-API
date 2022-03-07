@@ -8,8 +8,6 @@ const SingleProduct = ({ product }) => {
 
   const { state:{cart}, dispatch } = CartState();
 
-  console.log(cart)
-
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={product.image} />
@@ -17,7 +15,10 @@ const SingleProduct = ({ product }) => {
 
         <Card.Title>{product.name}</Card.Title>
 
-        <Card.Text>Price: ${product.price}</Card.Text>
+        <Card.Text>Price: {Number(product.price).toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        })}</Card.Text>
 
         <Card.Text>
           {product.fastDelivery ? <span>fast delivery <GiFastArrow /> 
